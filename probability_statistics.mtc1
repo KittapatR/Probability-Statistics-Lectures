@@ -1,0 +1,22 @@
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.1}What is a Random Variable?}{\reset@font\mtcSfont 3}{section.1.1}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.2}Measure Spaces}{\reset@font\mtcSfont 3}{section.1.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.2.1}How can we measure things mathematically?}{\reset@font\mtcSSfont 3}{subsection.1.2.1}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Checklist for giving some intuition sense on measurement a volume which we will be interested in a specific region.}{\reset@font\mtcSSSfont 4}{section*.2}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode How to know that how big is $\sigma $-algebra\\ (for who are interested in measure theory.)}{\reset@font\mtcSSSfont 4}{section*.3}}
+{\reset@font\mtcSSSfont\mtc@string\contentsline{subsubsection}{\noexpand \leavevmode Checklist for giving some intuition sense on a value of measurement}{\reset@font\mtcSSSfont 5}{section*.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.2.2}Probability spaces}{\reset@font\mtcSSfont 6}{subsection.1.2.2}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.3}Formal Definition on a Random Variable}{\reset@font\mtcSfont 7}{section.1.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.3.1}Why we would like to mention a random variable formally?}{\reset@font\mtcSSfont 7}{subsection.1.3.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.3.2}Necessary functions for interpreting the probability and statistics}{\reset@font\mtcSSfont 7}{subsection.1.3.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.3.3}Examples and counterexamples for random variables}{\reset@font\mtcSSfont 8}{subsection.1.3.3}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.4}What is a Probability Distribution?}{\reset@font\mtcSfont 8}{section.1.4}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.5}Lebesgue Integration and Its Consequences}{\reset@font\mtcSfont 9}{section.1.5}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.5.1}Definition of Lebesgue integration}{\reset@font\mtcSSfont 9}{subsection.1.5.1}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.5.2}Almost everywhere and almost surely properties}{\reset@font\mtcSSfont 9}{subsection.1.5.2}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.5.3}Convergence theorems}{\reset@font\mtcSSfont 9}{subsection.1.5.3}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.5.4}Fubini's theorem}{\reset@font\mtcSSfont 9}{subsection.1.5.4}}
+{\reset@font\mtcSSfont\mtc@string\contentsline{subsection}{\noexpand \leavevmode \numberline {1.5.5}Radon-Nikodym theorem}{\reset@font\mtcSSfont 9}{subsection.1.5.5}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.6}Formal Definition of Probability Distribution}{\reset@font\mtcSfont 9}{section.1.6}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.7}Expected Value}{\reset@font\mtcSfont 9}{section.1.7}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.8}Conditional Probability and Bayes' Rule}{\reset@font\mtcSfont 9}{section.1.8}}
+{\reset@font\mtcSfont\mtc@string\contentsline{section}{\noexpand \leavevmode \numberline {1.9}Interpretation of Probability}{\reset@font\mtcSfont 9}{section.1.9}}

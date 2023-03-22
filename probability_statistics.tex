@@ -1,0 +1,277 @@
+\documentclass[12pt, a4paper]{report}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{csquotes}
+\usepackage{soul}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{minitoc}
+\usepackage{epsdice}
+\usepackage[ddmmyyyy]{datetime}
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{remark}{Remark}[theorem]
+
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \null\vfill
+        \textbf{\Large Lecture Notes on\\[6pt]
+        Probability and Statistics}\\[6pt]
+        \emph{for BSc Health Data Science, KMUTT community\\
+        who would like to know more advanced\\
+        than our taughts}\\[12pt]
+
+        Kittapat Ratanaphupha\\
+        Last update on \today\, at \currenttime
+        \vfill
+    \end{center}
+\end{titlepage}
+\dominitoc
+\nomtcrule
+\tableofcontents
+    \chapter{Axioms on Probability}
+    \vspace{-3em}
+    \minitoc[n]
+    This lecture is for revising \emph{Probability and Statistics} related courses concerning with Health Data Science program, KMUTT-PCCMS. Here is a list of courses which are related with:
+    \begin{itemize}
+        \item MTH 10x: Mathematics X (Prerequisites for all math courses)
+        \item CHHD 301: Biostatistics
+        \item CPE 353: Design of Experiments
+    \end{itemize}
+
+    Hereinafter, we will discuss about a basic concept of probability and statistics \st{without mentioning any rigorous mathematical-analytic approaches}. The lecture we will follow for this chapter was provided to everyone before we have started this.
+
+    \section{What is a Random Variable?}
+    \begin{displayquote}
+        A \textbf{random variable} is a mathematical formalization of a quantity or object which depends on random events. \textemdash \emph{Wikipedia English}
+    \end{displayquote}
+    As we say, random variable,
+    \begin{enumerate}
+        \item \textbf{Random} is some kind of doings which cannot be determined exactly from time to time. The result will be given \emph{by chances}
+        \item \textbf{Variable} is some kind of a placeholder which can be more than one possibility \emph{by assumption}.
+    \end{enumerate}
+    Then, when we say about a random variable is then a kind of a placeholder of something which can be varied \emph{by chances}, but how do we measure its chances concerning the event.
+
+    First, we list a set of possibilities into numbers by focusing a relation between its event to transform the possibility into an encoded number. For example, in the event that we would like to toss a coin, a set of possibilities will be like $\{\text{Head}, \text{Tail}, \text{Middle}\}$. We can do transformation a set of possibilities to be mathematical \emph{formalized} as $\{-1, 0, 1\}$ respectively.
+
+    As we see by the previous example,
+    \begin{itemize}
+        \item $\{\text{Head}, \text{Tail}, \text{Middle}\}$ is a sample space.
+        \item $\{-1, 0, 1\}$ is a space which we can measure the value (which will be later called \emph{probability}.)
+    \end{itemize} 
+
+    In simple manner, a random variable is a function which transforms an event from sample space into some space that we can measure its probability.\footnote{Formally, a random variable is a measurable function between a sample space which is a $\sigma$-algebra into a measurable space which we will discuss later term by term.}
+
+    We see that, it is necessary to construct a framework before we discuss \emph{a random variable by formally.} The mathematical tool for handling this is called \textbf{measure theory with the Kolmogorov axioms}.
+
+    \section{Measure Spaces}
+    We will have some doubt about this mathematical approach for probability and statistics that how can this overcome the informal description for random variables or any terminology in probability and statistics. We will show then by the following.
+    \subsection{How can we measure things mathematically?}
+    First, we will discuss and pursue everyone to believe/not believe a sense of measurement.
+
+    \subsubsection{Checklist for giving some intuition sense on measurement a volume which we will be interested in a specific region.}
+
+    \begin{todolist}
+        \item We know that how to measure a such region that how volume is (if we could.)
+        \item We can measure nothing by doing nothing.
+        \item If we can measure an object, we can measure its compliment by subtract its value from the value we have measured a such region.
+        \item If we can measure a set of objects, we can measure the combined object.
+        \item If we can measure a set of objects, we can measure the mutual things that are included in all objects we are interested.
+    \end{todolist}
+
+    Then, we transcribe it mathematically like this.
+
+    \begin{definition}[$\sigma$-algebra on $X$]\label{sigma-algebra}
+        A collection $\mathfrak{M}$ of subsets of a set $X$ is called a $\sigma$-algebra if
+        \begin{itemize}
+            \item $X \in \mathfrak{M}$\\
+            (it is as we know that a such region is measurable.)
+            \item if $A\in\mathfrak{M}$, then $A^c \in \mathfrak{M}.$\\ (it is as if we can measure an object, we can measure its compliment.)
+            \item if $A_1, A_2, \dots \in \mathfrak{M}$, then $\bigcup_{i=1}^\infty A_i \in \mathfrak{M}.$\\ (it is as if we can measure a set of objects, we can measure its combined object.)
+        \end{itemize}
+    \end{definition}
+    By then, we can imply that:
+    \begin{remark} $\varnothing \in \mathfrak{M}$ (it is that we can measure nothing by doing nothing.)
+    \end{remark}
+    \begin{remark} if $A_1, A_2, \dots \in \mathfrak{M}$, then $\bigcap_{i=1}^\infty A_i\in \mathfrak{M}$ (it is that if the set of objects is measurable by each object, then we can measure the mutual things that are included in all objects we are interested.)
+    \end{remark}
+    \begin{remark}
+        If $A, B \in \mathfrak{M}$, $A \setminus B \in \mathfrak{M}.$
+    \end{remark}
+    \begin{proof} Left blank intentionally
+    \end{proof}
+
+    \subsubsection{How to know that how big is $\sigma$-algebra\\ (for who are interested in measure theory.)}
+    
+    \begin{enumerate}
+    \item Say that if we have $D = \{A,B,C\}$ as a set of measurable sets, so what is a smallest $\sigma$-algebra generated by $D$ then?
+    \item If we say $X$ is a set, $\mathcal{P}(X)$ can be a $\sigma$-algebra on $X$.
+    \item Also, suppose that $X$ is a set, $\{X, \varnothing\}$ is a $\sigma$-algebra on $X$.
+    \item The $\sigma$-algebra which is generated from a collection of open sets on a topological space $X$ is called \emph{a Borel $\sigma$-algebra} on $X$.
+    \end{enumerate}
+
+    After this, we will call a pair $(X, \mathfrak{M})$ as a measurable space as each symbol is defined as in Definition \ref{sigma-algebra}.
+
+    The second component, a measure, will be discussed by, again, some checklist.
+
+    \subsubsection{Checklist for giving some intuition sense on a value of measurement}
+    \begin{todolist}
+        \item If we know that a value of measurement of objects such that they pairwise disjoint, a value of measurement for the combined object is then a summation of such each object.
+        \item A value of measurement on an empty set must be zero.
+    \end{todolist}
+    By formally, the measure can be defined as:
+    \begin{definition}[Measure on a measurable space $(X,\mathfrak{M})$] Let $(X,\mathfrak{M})$ be a measurable space. A measure on $\mathfrak{M}$ is a function $\mu: \mathfrak{M} \to [0,\infty]$ such that
+        \begin{itemize}
+            \item $\mu(\varnothing) = 0$\\ (A value of measurement on an empty set is zero.)
+            \item for any countable collection of disjoint sets $\{A_n\}_{n=1}^\infty$ in $\mathfrak{M}$ then
+            $$\mu\left(\bigcup_{n=1}^\infty A_n\right) = \sum_{n=1}^\infty \mu(A_n)$$
+            (A value of measurement on its union of disjoint objects is a summation of a value of measurement on each object.)
+        \end{itemize}
+    \end{definition}
+    Note that, we will call $(X, \mathfrak{M}, \mu)$ as a measure space.
+    By this, here are consequences for this definition,
+    \begin{remark} Let $(X, \mathfrak{M}, \mu)$ be a measure space.
+        \begin{itemize}
+            \item If $A_1, A_2, \dots, A_n \in \mathfrak{M}$ and $A_i \cap A_j = \varnothing$ for $i \neq j$, then
+            $$\mu\left(\bigcup_{i=1}^n A_i\right) = \sum_{i=1}^n \mu(A_i)$$
+            \item If $A, B \in \mathfrak{M}$ and $A \subseteq B$, then $\mu(A) \leq \mu(B)$; if $\mu(A) < \infty$, then $\mu(B\setminus A) = \mu(B) - \mu(A).$
+            \item If $A_n \in \mathfrak{M}$ for each $n \in \mathbb{N}$, then 
+            \begin{itemize}
+                \item $\displaystyle\mu\left(\bigcup_{n=1}^\infty A_n\right) \leq \sum_{n=1}^\infty \mu(A_n)$
+                \item If $A_1 \subseteq A_2 \subseteq \dots$, $$\mu\left(\bigcup_{n=1}^ \infty A_n\right) = \lim_{n\to \infty} \mu(A_n)$$
+                \item If $A_1 \supseteq A_2 \supseteq \dots$, $$\mu\left(\bigcap_{n=1}^ \infty A_n\right) = \lim_{n\to \infty} \mu(A_n)$$
+            \end{itemize}
+        \end{itemize}
+    \end{remark}
+    \begin{proof} Left blank intentionally
+    \end{proof}
+
+    The last component, a measurable function, in layman's term, is a conversion of measurement.
+
+    \begin{definition}[Measurable function between two measure spaces] Let $(X,\mathfrak{M})$ and $(Y, \mathfrak{N})$ be measurable spaces. A function $f: X \to Y$ is said to be $(\mathfrak{M}, \mathfrak{N})$-measurable if $f^{-1}(E) \in \mathfrak{M}$ for any $E \in \mathfrak{N}$. Informally, we can simply call $f$ as a measurable function if $X,Y$ are well-understood.
+    \end{definition}
+
+    \subsection{Probability spaces}
+
+    In probability, there is an important concept that is a probability space. As we were in high school, a definition of a probability space is well-defined as we will say that.
+
+    \begin{todolist}
+        \item a probability of whole sample space is 1.
+        \item There are no events such that its probability is more than 1 or less than 0.
+        \item The separated events have probability equal to their probability on each event combined.
+    \end{todolist}
+
+    As we discussed about some concept on the measure theory, we will call this a probability space formally by the following definition.
+
+    \begin{definition}[Probability space; Kolmogorov Axioms] Let $(\Omega, F, P)$ be a measure space as said to be a probability space if,
+        \begin{itemize}
+            \item (Unitary axiom) $P(\Omega) = 1$
+            \item (Non-negativity) if $E \in F$, then $P(E) \geq 0$.
+            \item ($\sigma$-additivity) if $E_n \in F$ for each $n \in \mathbb{N}$ and $E_i \cap E_j = \varnothing$ for each $i \neq j$, then $$P\left(\bigcup_{n=1}^\infty E_n\right) = \sum_{n=1}^\infty P(E_n).$$
+        \end{itemize}
+    \end{definition}
+
+    So, its consequences can be written as this,
+    \begin{remark} Let $(\Omega, F, P)$ be a probability space.
+        \begin{itemize}
+            \item (Monotonicity of probability measure) if $A, B \in F$ and $A \subseteq B$, then $P(A) \leq P(B)$.
+            \item (Probability of no event) $P(\varnothing) = 0$
+            \item (Probability of compliment event) If $A\in F$, then $P(A^c) = 1-P(A)$
+            \item (Probability measure has a bounded image) For each $A \in F$, $0 \leq P(A) \leq 1.$
+        \end{itemize}
+    \end{remark}
+    \begin{proof} Left blank intentionally
+    \end{proof}
+    \section{Formal Definition on a Random Variable}
+    \begin{definition}[Random variable on $(\Omega, F, P)$ into $(E, \mathfrak{M})$] Let $(\Omega, F, P)$ be a probability space, says a sample space, and $(E,\mathfrak{M})$ be a measure space.
+        
+    A random variable is a function $X: \Omega \rightarrow E$ such that a probability of $X$ in $S$ which $S \in \mathfrak{M}$ is defined as $$P(X\in S) = P(\{\omega \in \Omega | X(\omega) \in S\}).$$
+    \end{definition}
+
+    In layman's term, the probability of random variable in a certain set is equal to the probability of event in the sample space which maps to the measure space that is included in the interested set.
+
+    \textbf{Interesting note:} consider an event of rolling a die, there are values $\{1,2,3,4,5,6\}$ which is easily determined that is a natural number. When we interpret a probability, we do not think a random variable as $X$ directly, but its inverse function since we assign a probability in a sample space $\Omega = \{\epsdice{1}, \epsdice{2}, \epsdice{3}, \epsdice{4}, \epsdice{5}, \epsdice{6}\}$.
+
+    For example, $P(X < 3)$ is said to be a probability that a die shows a number that is less than 3. It means $P(X < 3) = P(\{\epsdice{1}, \epsdice{2}\})$. For instance, $X^{-1}(1) = \epsdice{1}.$ Say that it is an abstraction of sample space which can use mathematical tools to analyze it.
+
+    \subsection{Why we would like to mention a random variable formally?}
+    \begin{itemize}
+        \item There are theorems in measure theory that provide well-definition of many familiar terminologies, such as, probability distribution, expected value, joint distribution, etc.
+        \item Major theorems in probability and statistics are derived from measure-theoretic approach, e.g. the Laws of large number, the Central limit theorem.
+        \item Not even in fundamental theorems and terminology we mentioned, in advanced concepts on statistics, i.e. sampling theory (bias-variance tradeoff, unbiased estimator as examples), high-dimensional statistics (which is a crucial base for machine learning in dimensional reduction tasks) and statistical learning theory (which is a fundamental of machine learning in classification and regression tasks), also using this definition to derive elegant properties in them.
+    \end{itemize}
+    \subsection{Necessary functions for interpreting the probability and statistics}
+    \begin{definition}[Indicator function] Let $X,A$ be sets such that $A \subseteq X$. Define $\mathbf{1}_A: X \rightarrow \{0,1\}$ be an indicator function of $A$ that,
+        \begin{equation*}
+            \mathbf{1}_A(x) = \begin{cases}
+                1 & x \in A\\
+                0 & x \notin A.
+            \end{cases}
+        \end{equation*}
+    \end{definition}
+    \begin{definition}[Simple function] Let $(X,\mathfrak{M})$ be a measurable space. Suppose that $A_1, A_2, \dots, A_k \in \mathfrak{M}$. Then $f: X \to \mathbb{C}$ is a simple function such that
+        $$f(x) = \sum_{i=1}^k a_i \mathbf{1}_{A_i}(x)$$
+    where $\{a_i\}_{i=1}^k$ is a sequence in $\mathbb{C}.$
+    \end{definition}
+
+    \subsection{Examples and counterexamples for random variables}
+    Here are the examples and counterexamples to show that are random variables or not, but we have to verify these before affirm the conclusion.
+    \begin{itemize}
+        \item Let $X$ be a measurable function such that $\mathrm{im}\,X = C$ which that $|C| \leq |\mathbb{N}|$ (set theory: $C$ is countable\footnote{say that $C$ is countable, by set theoretically, by the existence of an injective function between $C$ into $\mathbb{N}$.}.) For example, $X: \Omega \rightarrow \{1,5,9\}$ where $\Omega$ is a sample space in a probability space $(\Omega, F, P)$. $X$ is called \emph{discrete random variable.}
+        \item Let $X$ be a measurable function such that $X: \Omega \to C$ as the same as the above bullet, but $C$ is uncountable infinite.\footnote{says that there are no injective functions $f: C \rightarrow \mathbb{N}$ by the opposite of definition of countable set in the set theory in cardinality.} We will call then \emph{continuous random variable}. E.g. $X: \Omega \to \mathbb{R}$ or $X: \Omega \to [0,1]$ as if we interpret $X$ as a bijective function.
+        \item Let $X(\omega) = \mathbf{1}_A(\omega) - \mathbf{1}_{A^c}(\omega)$ where $A$ is a non-measurable set. Say that $X$ is not a random variable.
+        \item Let $X$ be the same definition as the last bullet. $|X|$ is a random variable.
+    \end{itemize}
+    \begin{proof}
+        Leave it blank intentionally.
+    \end{proof}
+
+    \section{What is a Probability Distribution?}
+    \begin{displayquote}
+        A \textbf{probability distribution} is the mathematical function that gives the probabilities of occurrence of different possible outcomes for an experiment. — \emph{Wikipedia English}
+    \end{displayquote}
+
+    In simple manner (which means in undergraduate class), a probability distribution is a function from random variable to some real number which we will discuss later that it can be extended to an extended real number. To be simpler, a probability distribution is a probability assignment for each representative value of event in sample space which probability that happening at least an event is equal to 1.
+
+    As in undergraduate course, a probability distribution can be classified as two types corresponding to discrete and continuous variables, \emph{probability mass function} and \emph{probability distribution function} respectively which are defined by,\\[6pt]
+
+    Let $X: (\Omega, F, P) \to (E, \mathfrak{M})$ be a random variable. 
+
+    \begin{enumerate}
+        \item Probability mass function: say that $X$ is a discrete random variable. $p_X: E \rightarrow [0,1]$ is a probability mass function (PMF) as defined as
+        $$p_X(x) = P(X = x)$$
+        as $\sum_{x \in E} p_X(x) = 1$.\
+        \item Probability density function: say that $X$ is a continuous random variable. $f_X: E \rightarrow [0, \infty]$ is a probability distribution function (PDF) as defined as $$P(a \leq X \leq b) = \int_a^b f_X(x)\,dx$$ as $\int_E f(x)\,dx = 1.$
+    \end{enumerate}
+    but there is a set of restriction such that not every function which has domain and range as described above be any probability distribution, but Lebesgue integration and its important theorems must be mentioned which will be discussed in the next section as the following.
+
+    \begin{itemize}
+        \item Definition of Lebesgue integration
+        \item Almost everywhere and almost surely properties
+        \item Convergence theorems for Lebesgue integration
+        \item Fubini's theorem
+        \item Absolutely continuous on measures and Radon-Nikodym theorem 
+    \end{itemize}
+
+    \section{Lebesgue Integration and Its Consequences}
+    \subsection{Definition of Lebesgue integration}
+    \subsection{Almost everywhere and almost surely properties}
+    \subsection{Convergence theorems}
+    \subsection{Fubini's theorem}
+    \subsection{Radon-Nikodym theorem}
+
+    \section{Formal Definition of Probability Distribution}
+
+    \section{Expected Value}
+    \section{Conditional Probability and Bayes' Rule}
+    \section{Interpretation of Probability}
+\end{document}
